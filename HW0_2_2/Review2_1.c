@@ -1,3 +1,4 @@
+//새로운 포인터 구조체 반환하려면 그 함수 내 정의에서 동적할당으로 메모리 할당해줘야 함
 #include <stdio.h>
 #include <stdlib.h>
 //1) typedef으로 Score를 정의
