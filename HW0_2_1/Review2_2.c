@@ -1,3 +1,4 @@
+//역문자열 만들기 s 0부터 e 인덱스 맨 끝
 #include <stdio.h>
 #include <string.h>
 void reverse_string(char* str, int s, int e)
