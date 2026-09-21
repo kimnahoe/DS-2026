@@ -65,7 +65,7 @@ element peek(StackType* s)
 void main()
 {
 	StackType s;
-	int num;
+	
 	init(&s);
 	push(&s, 10);
 	stack_print(&s); //현재 스택 모습 출력
