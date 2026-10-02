@@ -20,6 +20,6 @@ int main()
      scanf("%s", str); 
 
      printf("Reversed String is: ");
-     print_reverse(str, strlen(str) - 1); // str怨� 留덉�留� �몃뜳�ㅻ� 留ㅺ컻蹂��섎줈
+     print_reverse(str, strlen(str) - 1);
      return 0;
 }
