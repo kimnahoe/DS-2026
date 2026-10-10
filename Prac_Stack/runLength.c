@@ -56,8 +56,9 @@ char* runLength(StackType* s)
 
 	char* newStr;
 	newStr = (char *)malloc(sizeof(char) * 50);
+
 	int count = 1;
-	int i = 0;
+	int index = 0; //새로운 문자열 저장 인덱스
 	int num;
 	while (!is_empty(s)) {
 		num = tolower(peek(s)); //연속된 문자 확인하기 위해서 맨 처음
@@ -66,18 +67,18 @@ char* runLength(StackType* s)
 			if (tolower(num) == tolower(peek(s)))
 				count++;
 			else {//다르면 count랑 같이 
-				newStr[i++] = count + '0';
-				newStr[i++] = num;
+				newStr[index++] = count + '0';
+				newStr[index++] = num;
 				count = 1;
 			}
 		}
 	}
 	if (count > 0) {
-		newStr[i++] = count + '0';
-		newStr[i++] = num;
+		newStr[index++] = count + '0';
+		newStr[index++] = num;
 	}
 
-	newStr[i] = '\0';
+	newStr[index] = '\0';
 
 	return newStr;
 }
