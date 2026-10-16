@@ -52,11 +52,9 @@ int pop_rear(DequeType* c) {
 	return value;
 }
 
-void add_front(DequeType* c, int item) {
-	if (is_full(c))
-		error("error");
-	c->queue[c->front] = item;
+int add_front(DequeType* c, int item) {
 	c->front = (c->front - 1 + MAX_QUEUE_SIZE) % MAX_QUEUE_SIZE;
+	return c->queue[c->front] = item;
 }
 int add_rear(DequeType* c, int item) {
 	if (is_full(c))
@@ -75,9 +73,7 @@ int get_rear(DequeType* c) {
 int rotate_left(DequeType *c){
 	return add_rear(c, pop_front(c));
 }
-void rotate_right(DequeType *c){
-	add_front(c, pop_rear(c));
-}
+
 void print_deq(DequeType *c){
     if (is_empty(c)) {
         printf("\n");
@@ -101,7 +97,6 @@ int main(void)
     	enqueue(&q, num);
 	}
 	rotate_left(&q);
-	//rotate_right(&q);
 	print_deq(&q);
 	return 0;
 }
