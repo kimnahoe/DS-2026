@@ -7,82 +7,78 @@ struct ListNode *link;
 } ListNode;
 void error(char *message)
 {
-fprintf(stderr, "%s\n", message);
-exit(1);
+	fprintf(stderr, "%s\n", message);
+	exit(1);
 }
 ListNode* insert_next(ListNode *head, ListNode *pre, element value)
 {
-ListNode *p = (ListNode *)malloc(sizeof(ListNode));
-p->data = value;
-p->link = pre->link;
- pre->link = p;
- return head;
+	ListNode *p = (ListNode *)malloc(sizeof(ListNode));
+	p->data = value;
+	p->link = pre->link;
+ 	pre->link = p;
+ 	return head;
 }
 ListNode* insert_first(ListNode *head, int value)
 {
-ListNode *p = (ListNode *)malloc(sizeof(ListNode));
-p->data = value; 
- p->link = head; 
- head = p; 
- return head; 
+	ListNode *p = (ListNode *)malloc(sizeof(ListNode));
+	p->data = value; 
+ 	p->link = head; 
+ 	head = p; 
+ 	return head; 
 }
 ListNode* insert_last(ListNode *head, int value)
 {
-ListNode *temp = head;
-ListNode *p = (ListNode *)malloc(sizeof(ListNode));
-p->data = value;
-p->link = NULL;
- if (head == NULL) 
- head = p;
- else {
- while (temp->link != 0)
- temp = temp->link;
-
- temp->link = p;
- 
-return head;
-}
+	ListNode *temp = head;
+	ListNode *p = (ListNode *)malloc(sizeof(ListNode));
+	p->data = value;
+	p->link = NULL;
+ 	if (head == NULL) 
+ 	head = p;
+ 	else {
+ 		while (temp->link != 0)
+ 			temp = temp->link;
+ 		temp->link = p;
+		return head;
+	}
 }
 ListNode* delete_next(ListNode *head, ListNode *pre)
 {
-ListNode *removed;
- removed = pre->link;
- pre->link = removed->link; 
- free(removed);
+	ListNode *removed;
+ 	removed = pre->link;
+ 	pre->link = removed->link; 
+ 	free(removed);
 
-return head;
+	return head;
 }
 ListNode* delete_first(ListNode *head)
 {
-ListNode *removed;
-if (head == NULL) error("error");
- removed = head;
- head = removed->link; 
- free(removed);
- return head;
-
+	ListNode *removed;
+	if (head == NULL) error("error");
+ 	removed = head;
+ 	head = removed->link; 
+ 	free(removed);
+ 	return head;
 }
 ListNode* delete_last(ListNode *head)
 {
-ListNode *temp = head;
-ListNode *prevTemp;
-ListNode *removed;
-if (head == NULL) error("error");
- if (temp->link == NULL) {
- free(temp);
- return NULL;
- }
- else {
-
- while (temp->link != NULL) {
- prevTemp = temp;
- temp = temp->link;
- }
- removed = temp;
- prevTemp->link = NULL;
- free(removed);
- return head; 
-}
+	ListNode *temp = head;
+	ListNode *prevTemp;
+	ListNode *removed;
+	if (head == NULL) error("error");
+ 	if (temp->link == NULL) {
+ 		free(temp);
+ 		return NULL;
+ 	}
+ 	else {
+ 		while (temp->link != NULL) {
+ 			prevTemp = temp;
+ 			temp = temp->link;
+ 		}
+ 		removed = temp;
+ 		prevTemp->link = NULL;
+ 		free(removed);
+ 		return head; 
+	}
 }
 void print_list(ListNode *head)
 {
