@@ -79,21 +79,15 @@ ListNode* delete_last(ListNode* head)
 }
 ListNode* search(ListNode* head, element data)
 {
-	ListNode* p;
-	p = head->link;
-	if (head == NULL) return 0;
-	else if(head == head->link) {
-		if(head->data == data)
-			return head;
-	}
-	else {
-		do {
-			p=p->link;
-			if(p->data == data)
-				return p;
-		} while(p != head->link);
-	}
-	return NULL;
+    ListNode* p;
+    if (head == NULL) return NULL;
+    p = head->link;
+    do {
+        if (p->data == data)
+            return p;
+        p = p->link;
+    } while (p != head->link);
+    return NULL;
 }
 int get_size(ListNode* head)
 {
